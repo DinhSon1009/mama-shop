@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 
 import "./SignInForm.scss";
@@ -9,6 +9,7 @@ import {
 } from "../../utils/firsebase/firebase.utils";
 import Button from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
+import { UserContext } from "../../context/userContext";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -18,32 +19,33 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
+    // await createUserDocumentFromAuth(user);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
-          toast.error("incorrect password for email");
+          toast.error("Incorrect password for email");
           break;
         case "auth/user-not-found":
-          toast.error("no user associated with this email");
+          toast.error("No user associated with this email");
           break;
         default:
           console.log(error);
