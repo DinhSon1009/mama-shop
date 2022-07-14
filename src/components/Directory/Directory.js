@@ -1,10 +1,11 @@
 import DirectoryItem from "../DirectoryItem/DirectoryItem";
 import { DirectoryContainer } from "./DirectoryStyles";
-export default function Directory({ categories }) {
+import directories from "../../data/categories.json";
+export default function Directory() {
   return (
     <DirectoryContainer>
-      {categories.map(({ title, id, imageUrl }) => (
-        <DirectoryItem key={id} title={title} imageUrl={imageUrl} />
+      {directories.map((directory) => (
+        <DirectoryItem key={directory.id} directory={directory} />
       ))}
     </DirectoryContainer>
   );

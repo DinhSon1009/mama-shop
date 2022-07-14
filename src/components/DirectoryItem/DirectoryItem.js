@@ -1,11 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import {
   DirectoryBodyContainer,
   DirectoryItemContainer,
 } from "./DirectoryItemStyles";
 
-export default function CategoryItem({ imageUrl, title }) {
+export default function CategoryItem({ directory }) {
+  const { route, title, imageUrl } = directory;
+  const navigate = useNavigate();
+  const onNavigateHandler = () => navigate(route);
+
   return (
-    <DirectoryItemContainer>
+    <DirectoryItemContainer onClick={onNavigateHandler}>
       <div
         className="background-image"
         style={{
