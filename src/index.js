@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./context/userContext";
-import { ProductsProvider } from "./context/productContext";
+import { CategoriesProvider } from "./context/categoriesContext";
 import { CartProvider } from "./context/cartContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -16,11 +16,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <ProductsProvider>
+        <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
-        </ProductsProvider>
+        </CategoriesProvider>
       </UserProvider>
       <ToastContainer autoClose={2000} pauseOnHover={false} draggable />
     </BrowserRouter>
