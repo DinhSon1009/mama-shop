@@ -1,45 +1,45 @@
 import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
-import CartDropDown from "../../components/CartDropDown/CartDropDown";
 import CartIcon from "../../components/CartIcon/CartIcon";
-import { CartContext } from "../../context/cartContext";
+import CartDropdown from "../../components/CartDropDown/CartDropDown";
 import { UserContext } from "../../context/userContext";
+import { CartContext } from "../../context/cartContext";
 import { signOutUser } from "../../utils/firsebase/firebase.utils";
-import "./Navbar.scss";
-const Navbar = () => {
-  const { currentUSer } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+import {
+  NavbarContainer,
+  LogoContainer,
+  NavLinks,
+  NavLink,
+} from "./NavbarStyles";
+
+const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
+
   return (
     <Fragment>
-      <div className="navbar">
-        <Link className="logo-container" to="/">
-          <div>
-            <CrownLogo />
-          </div>
-        </Link>
-        <div className="nav-links-container ">
-          <Link className="nav-link" to="/shop">
-            SHOP
-          </Link>
-          <Link className="nav-link" to="/contact">
-            CONTACT
-          </Link>
-          {currentUSer ? (
-            <span onClick={signOutUser} className="nav-link">
+      <NavbarContainer>
+        <LogoContainer to="/">
+          <CrownLogo />
+        </LogoContainer>
+        <NavLinks>
+          <NavLink to="/shop">SHOP</NavLink>
+
+          {currentUser ? (
+            <NavLink as="span" onClick={signOutUser}>
               SIGN OUT
-            </span>
+            </NavLink>
           ) : (
-            <Link className="nav-link" to="/auth">
-              SIGN IN
-            </Link>
+            <NavLink to="/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
-        </div>
-        {isCartOpen && <CartDropDown />}
-      </div>
+        </NavLinks>
+        {isCartOpen && <CartDropdown />}
+      </NavbarContainer>
       <Outlet />
     </Fragment>
   );
 };
-export default Navbar;
+
+export default Navigation;
