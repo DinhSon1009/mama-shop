@@ -1,18 +1,21 @@
-import "./DirectoryItem.scss";
+import {
+  DirectoryBodyContainer,
+  DirectoryItemContainer,
+} from "./DirectoryItemStyles";
 
 export default function CategoryItem({ imageUrl, title }) {
   return (
-    <div className="directory-item-container">
+    <DirectoryItemContainer>
       <div
         className="background-image"
         style={{
           backgroundImage: `url(${imageUrl})`,
         }}
       />
-      <div className="directory-body-container">
+      <DirectoryBodyContainer>
         <h2>{title}</h2>
         <p>Shop Now</p>
-      </div>
-    </div>
+      </DirectoryBodyContainer>
+    </DirectoryItemContainer>
   );
 }

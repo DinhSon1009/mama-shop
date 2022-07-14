@@ -3,8 +3,6 @@ import CategoryPreview from "../../components/CategoryPreview/CategoryPreview";
 
 import { CategoriesContext } from "../../context/categoriesContext";
 
-import "./CategoriesPreview.scss";
-
 export default function CategoriesPreview() {
   const { categoriesMap } = useContext(CategoriesContext);
   return (

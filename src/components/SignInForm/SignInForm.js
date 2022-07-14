@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 
-import "./SignInForm.scss";
 import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
@@ -10,6 +9,7 @@ import {
 import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
 import { UserContext } from "../../context/userContext";
+import { ButtonContainer, Container } from "./SignInFormStyles";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -60,7 +60,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <Container>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -81,7 +81,7 @@ const SignInForm = () => {
           name="password"
           value={password}
         />
-        <div className="buttons-container">
+        <ButtonContainer>
           <Button type="submit">Sign In</Button>
           <Button
             type="button"
@@ -90,9 +90,9 @@ const SignInForm = () => {
           >
             Google sign in
           </Button>
-        </div>
+        </ButtonContainer>
       </form>
-    </div>
+    </Container>
   );
 };
 
