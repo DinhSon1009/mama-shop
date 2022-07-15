@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
 import CartIcon from "../../components/CartIcon/CartIcon";
 import CartDropdown from "../../components/CartDropDown/CartDropDown";
-import { UserContext } from "../../context/userContext";
 import { CartContext } from "../../context/cartContext";
 import { signOutUser } from "../../utils/firsebase/firebase.utils";
 import {
@@ -12,10 +11,12 @@ import {
   NavLinks,
   NavLink,
 } from "./NavbarStyles";
+import { selectCurrentUser } from "../../store/user/userSelector";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <Fragment>

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 import {
@@ -8,7 +8,6 @@ import {
 } from "../../utils/firsebase/firebase.utils";
 import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
-import { UserContext } from "../../context/userContext";
 import { ButtonContainer, ButtonStyled, Container } from "./SignInFormStyles";
 const defaultFormFields = {
   email: "",
@@ -18,8 +17,6 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
-  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
