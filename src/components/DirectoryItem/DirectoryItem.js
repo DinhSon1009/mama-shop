@@ -4,7 +4,7 @@ import {
   DirectoryItemContainer,
 } from "./DirectoryItemStyles";
 
-export default function CategoryItem({ directory }) {
+export default function DirectoryItem({ directory }) {
   const { route, title, imageUrl } = directory;
   const navigate = useNavigate();
   const onNavigateHandler = () => navigate(route);

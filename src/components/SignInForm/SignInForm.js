@@ -9,7 +9,7 @@ import {
 import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 import FormInput from "../FormInput/FormInput";
 import { UserContext } from "../../context/userContext";
-import { ButtonContainer, Container } from "./SignInFormStyles";
+import { ButtonContainer, ButtonStyled, Container } from "./SignInFormStyles";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -82,14 +82,14 @@ const SignInForm = () => {
           value={password}
         />
         <ButtonContainer>
-          <Button type="submit">Sign In</Button>
-          <Button
+          <ButtonStyled type="submit">Sign In</ButtonStyled>
+          <ButtonStyled
             type="button"
             buttonType={BUTTON_TYPE_CLASSES.google}
             onClick={signInWithGoogle}
           >
             Google sign in
-          </Button>
+          </ButtonStyled>
         </ButtonContainer>
       </form>
     </Container>

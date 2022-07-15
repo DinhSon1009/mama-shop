@@ -1,19 +1,13 @@
 import SignInForm from "../../components/SignInForm/SignInForm";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import { Container } from "./AuthenticationStyles";
 
 const Authentication = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "900px",
-        justifyContent: "space-between",
-        margin: "30px auto",
-      }}
-    >
+    <Container>
       <SignInForm />
       <SignUpForm />
-    </div>
+    </Container>
   );
 };
 

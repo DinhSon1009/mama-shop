@@ -1,14 +1,4 @@
-// .cart-icon-container {
-
 import styled from "styled-components";
-
-//     .shopping-icon {
-//
-//     }
-
-//     .item-count {
-//
-//   }
 
 export const CartIconContainer = styled.div`
   width: 45px;

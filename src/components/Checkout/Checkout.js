@@ -13,6 +13,7 @@ export default function Checkout() {
   const { cartItems, cartTotal } = useContext(CartContext);
   return (
     <CheckoutContainer>
+      <h2>Check Out</h2>
       <CheckoutHeader>
         <HeaderBlock>
           <Span>Product</Span>

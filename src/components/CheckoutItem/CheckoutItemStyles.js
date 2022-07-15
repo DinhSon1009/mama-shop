@@ -22,6 +22,9 @@ export const Image = styled.img`
 
 export const Title = styled.span`
   width: 23%;
+  @media screen and (max-width: 992px) {
+    font-size: 16px;
+  }
 `;
 
 export const Quantity = styled(Title)`

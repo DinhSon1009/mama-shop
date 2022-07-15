@@ -10,6 +10,9 @@ export const DirectoryItemContainer = styled.div`
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
   &:hover {
     cursor: pointer;
     & .background-image {
